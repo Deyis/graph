@@ -1,0 +1,23 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index
+
+GET     /nodes                      controllers.NodesController.list
+POST    /nodes                      controllers.NodesController.create
+GET     /nodes/:id                  controllers.NodesController.find(id: java.util.UUID)
+PUT     /nodes/:id                  controllers.NodesController.update(id: java.util.UUID)
+DELETE  /nodes/:id                  controllers.NodesController.delete(id: java.util.UUID)
+
+POST    /edges                      controllers.EdgesController.create
+GET     /edges/:from                controllers.EdgesController.allEdgesFrom(from: java.util.UUID)
+GET     /edges/:from/:to            controllers.EdgesController.find(from: java.util.UUID, to: java.util.UUID)
+PUT     /edges/:from/:to            controllers.EdgesController.update(from: java.util.UUID, to: java.util.UUID)
+DELETE  /edges/:from/:to            controllers.EdgesController.delete(from: java.util.UUID, to: java.util.UUID)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+    
